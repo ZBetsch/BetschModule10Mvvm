@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BetschModule10Mvvm.Views.ContactList"
+             xmlns:vm="clr-namespace:BetschModule10Mvvm.Models.ViewModels"
+             xmlns:models="clr-namespace:BetschModule10Mvvm.Models"
+             x:DataType="vm:ContactsListViewModel"
+             Title="ContactList">
+    <ListView x:Name="Lv" ItemsSource="{Binding Contacts}" ItemTapped="Lv_ItemTapped">
+        <ListView.Header>
+            <VerticalStackLayout BackgroundColor="Blue" Padding="5">
+                <Label Text="Contacts" HorizontalOptions="Center" TextColor="AntiqueWhite" FontAttributes="Bold"/>
+            </VerticalStackLayout>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="{x:Type models:Contact}">
+                <TextCell Text="{Binding ContactName}" Detail="{Binding ContactEmail}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
