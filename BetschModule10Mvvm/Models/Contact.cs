@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace BetschModule10Mvvm.Models
 {
-    class Contact
+    public partial class Contact : ObservableObject
     {
-        public string ContactName { get; set; }
-        public string ContactEmail { get; set; }
-        public string ContactPhone { get; set; }
-        public string ContactDescription { get; set; }
+        [ObservableProperty]
+        private string contactName;
+
+        [ObservableProperty]
+        private string contactEmail;
+
+        [ObservableProperty]
+        private string contactPhone;
+
+        [ObservableProperty]
+        private string contactDescription;
     }
 }

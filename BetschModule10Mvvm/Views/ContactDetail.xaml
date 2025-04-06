@@ -5,14 +5,19 @@
              xmlns:vm="clr-namespace:BetschModule10Mvvm.Models.ViewModels"
              x:DataType="vm:ContactsListViewModel"
              Title="ContactDetail">
-    <TableView Intent="Data">
-        <TableRoot>
-            <TableSection Title="Basic Information">
-                <TextCell Text="Contact Name"   Detail="{Binding Contact.ContactName}"/>
-                <TextCell Text="Contact Email"  Detail="{Binding Contact.ContactEmail}"/>
-                <TextCell Text="Contact Phone#" Detail="{Binding Contact.ContactPhone}"/>
-                <TextCell Text="Contact Description"     Detail="{Binding Contact.ContactDescription}"/>
-            </TableSection>
-        </TableRoot>
-    </TableView>
+    <StackLayout Padding="10">
+        <Label Text="Name" />
+        <Entry Text="{Binding Contact.ContactName, Mode=TwoWay}" />
+
+        <Label Text="Email" />
+        <Entry Text="{Binding Contact.ContactEmail, Mode=TwoWay}" />
+
+        <Label Text="Phone" />
+        <Entry Text="{Binding Contact.ContactPhone, Mode=TwoWay}" />
+
+        <Label Text="Description" />
+        <Editor Text="{Binding Contact.ContactDescription, Mode=TwoWay}" HeightRequest="100"/>
+
+        <Button Text="Save" Clicked="OnSaveClicked"/>
+    </StackLayout>
 </ContentPage>
