@@ -7,17 +7,21 @@
              Title="ContactDetail">
     <StackLayout Padding="10">
         <Label Text="Name" />
-        <Entry Text="{Binding Contact.ContactName, Mode=TwoWay}" />
+        <Entry x:Name="EntryName" Text="{Binding Contact.ContactName, Mode=TwoWay}" IsReadOnly="True"/>
 
         <Label Text="Email" />
-        <Entry Text="{Binding Contact.ContactEmail, Mode=TwoWay}" />
+        <Entry x:Name="EntryEmail" Text="{Binding Contact.ContactEmail, Mode=TwoWay}" IsReadOnly="True"/>
 
         <Label Text="Phone" />
-        <Entry Text="{Binding Contact.ContactPhone, Mode=TwoWay}" />
+        <Entry x:Name="EntryPhone" Text="{Binding Contact.ContactPhone, Mode=TwoWay}" IsReadOnly="True"/>
 
         <Label Text="Description" />
-        <Editor Text="{Binding Contact.ContactDescription, Mode=TwoWay}" HeightRequest="100"/>
+        <Editor x:Name="EntryDesc" Text="{Binding Contact.ContactDescription, Mode=TwoWay}" HeightRequest="100" IsReadOnly="True"/>
 
-        <Button Text="Save" Clicked="OnSaveClicked"/>
+        <StackLayout Padding="10" Spacing="10">
+        <Button x:Name="BtnSave" Text="Save" Clicked="OnSaveClicked" IsVisible="False"/>
+        <Button x:Name="BtnEdit"  Text="Edit" Clicked="OnEditClicked" IsVisible="True"/>
+        <Button Text="Back" Clicked="BtnBackClicked"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

@@ -14,7 +14,30 @@ public partial class ContactDetail : ContentPage
         if (BindingContext is ContactDetailViewModel vm)
         {
             DisplayAlert("Saved", "Contact details have been updated.", "OK");
-            Navigation.PopAsync();
+
+            EntryName.IsReadOnly = true;
+            EntryEmail.IsReadOnly = true;
+            EntryPhone.IsReadOnly = true;
+            EntryDesc.IsReadOnly = true;
+
+            BtnEdit.IsVisible = true;
+            BtnSave.IsVisible = false;
         }
+    }
+
+    private void OnEditClicked(object sender, EventArgs e)
+    {
+        EntryName.IsReadOnly = false;
+        EntryEmail.IsReadOnly = false;
+        EntryPhone.IsReadOnly = false;
+        EntryDesc.IsReadOnly = false;
+
+        BtnEdit.IsVisible = false;
+        BtnSave.IsVisible = true;
+    }
+
+    private void BtnBackClicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
     }
 }

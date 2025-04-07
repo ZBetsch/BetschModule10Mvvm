@@ -6,7 +6,7 @@
              xmlns:models="clr-namespace:BetschModule10Mvvm.Models"
              x:DataType="vm:ContactsListViewModel"
              Title="ContactList">
-    <ListView x:Name="Lv" ItemsSource="{Binding Contacts}" ItemTapped="Lv_ItemTapped">
+    <ListView x:Name="Lv" ItemsSource="{Binding Contacts}" ItemTapped="Lv_ItemTapped" HasUnevenRows="True">
         <ListView.Header>
             <VerticalStackLayout BackgroundColor="Blue" Padding="5">
                 <Label Text="Contacts" HorizontalOptions="Center" TextColor="AntiqueWhite" FontAttributes="Bold"/>
@@ -14,8 +14,22 @@
         </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="{x:Type models:Contact}">
-                <TextCell Text="{Binding ContactName}" Detail="{Binding ContactEmail}"/>
+                <ViewCell>
+                    <Frame BorderColor="Blue" Margin="0" Padding="0">
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="Name:" FontAttributes="Bold"/>
+                            <Label Text="{Binding ContactName}"/>
+
+                            <Label Text="Email:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                            <Label Text="{Binding ContactEmail}"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
+        <ListView.Footer>
+            <Button Text="Back" Clicked="BtnBackClicked"/>
+        </ListView.Footer>
     </ListView>
+    
 </ContentPage>
